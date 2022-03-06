@@ -11,9 +11,25 @@ namespace Nelinurk
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
-            Nelinurk figura = new Nelinurk(4,3);
+            double a,b,c;
+            Console.Write("Введите 1 сторону: ");
+            a = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Введите 2 сторону: ");
+            b = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Введите высоту: ");
+            c = Convert.ToDouble(Console.ReadLine());
+            Nelinurk figura = new Nelinurk(a,b,c);
             figura.Massiiv();
-            figura.Vivod();
+            if (figura.Figuravalid==false)
+            {
+                figura.Tuup;
+                Console.WriteLine("Фигура существует");
+                figura.Vivod();
+            }
+            else
+            {
+                Console.ReadKey();
+            }
             Console.ReadKey();
         }
     }
