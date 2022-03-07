@@ -24,6 +24,11 @@ namespace Nelinurk
             this.laius = laius;
             this.korgus = korgus;
         }
+        public Nelinurk(double pikkus, double laius)
+        {
+            this.pikkus = pikkus;
+            this.laius = laius;
+        }
         //Свойства
         public string Tuup
         {
@@ -37,7 +42,7 @@ namespace Nelinurk
                         abi2++;
                     }
                 }
-                if (pikkus==laius  && laius==korgus && pikkus==korgus)
+                if (pikkus==laius && korgus==0)
                 {
                     figuratype = "Квадрат";
                 }
@@ -105,8 +110,17 @@ namespace Nelinurk
         }
         public void Vivod() 
         {
-            Console.WriteLine($"Тип четырехугольника-> {figuratype}");
-            Console.WriteLine($"Pindala: {Pindala()}\nÕmbermotot: {Ombermotot()}");
+            if (abi==false)
+            {
+
+                Console.WriteLine("Фигура существует");
+                Console.WriteLine($"Тип четырехугольника-> {figuratype}");
+                Console.WriteLine($"Pindala: {Pindala()}\nÕmbermotot: {Ombermotot()}");
+            }
+            else
+            {
+                Console.WriteLine("Фигуры не существует");
+            }
         }
     }
 }

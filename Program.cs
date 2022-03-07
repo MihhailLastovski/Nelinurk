@@ -12,23 +12,29 @@ namespace Nelinurk
         {
             Console.OutputEncoding = Encoding.UTF8;
             double a,b,c;
-            Console.Write("Введите 1 сторону: ");
+            Console.Write("Введите длину: ");
             a = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Введите 2 сторону: ");
+            Console.Write("Введите ширину, если ширина неизвестна введите 0 ");
             b = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Введите высоту: ");
+            Console.Write("Введите высоту, если высота неизвестна введите 0: ");
             c = Convert.ToDouble(Console.ReadLine());
-            Nelinurk figura = new Nelinurk(a,b,c);
-            figura.Massiiv();
-            if (figura.Figuravalid==false)
+            if (a != 0 && b != 0 && c == 0)
             {
-                figura.Tuup;
-                Console.WriteLine("Фигура существует");
+                Nelinurk figura = new Nelinurk(a, b);
+                figura.Massiiv();
+                string tuup = figura.Tuup;
+                figura.Vivod();
+            }
+            else if (a != 0 && b != 0 && c != 0)
+            {
+                Nelinurk figura = new Nelinurk(a, b, c);
+                figura.Massiiv();
+                string tuup = figura.Tuup;
                 figura.Vivod();
             }
             else
             {
-                Console.ReadKey();
+                Console.WriteLine("Фигуры не существует");
             }
             Console.ReadKey();
         }
